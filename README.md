@@ -1,2 +1,6 @@
 # c2p
-c++ programs
+List of programs and stuff they're used for:
+
+
+misc testing:
+
