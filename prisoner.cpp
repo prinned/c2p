@@ -66,56 +66,52 @@ PD_results Prisoner::fight(Prisoner& p1, Prisoner& p2, int total_turns){
 }
 //-----------------END_SIMULATION-------------------
 
+// --------------------BOTS------------------------
+// 1 | Always Defect
 bool inline Always_defect::react(std::vector<bool>& opturns){
     return 0;
 }
 
-
+//2 | Always Co-operate
 bool inline Always_coop::react(std::vector<bool>& opturns){
     return 1;
 }
 
+//3 | Tit-for-Tat
 bool T4T::react(std::vector<bool>& opturns){
     if (opturns.size() == 0) return 1;
     return opturns.back();
 }
 
 //4 | Grudger
-class Grudger : public Prisoner {
-protected:
-    std::string name = "Grudger";
-public:
-    std::string getName(){return name;}
-    bool react(std::vector<bool>& opturns){
-        if (opturns.size() == 0) return 1;
-        for (auto i : opturns){
-            if (i == false) return false;
-        }
+bool Grudger::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return true;
+    for (auto i : opturns){
+        if (i == false) return false;
     }
-};
+}
 
 //5 | Suspicious Tit for Tat
-class ST4T : public Prisoner {
-protected:
-    std::string name = "Suspicious Tit for Tat";
-public:
-    std::string getName(){return name;}
-    bool react(std::vector<bool>& opturns){
-        if (opturns.size() == 0) return 0;
-        return opturns.back();
-    }
-};
+bool ST4T::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return 0;
+    return opturns.back();
+}
 
 //6 | Reverse Tit for Tat
-class RT4T : public Prisoner {
-protected:
-    std::string name = "Rev. Tit-4-Tat";
-public:
-    std::string getName(){return name;}
-    bool react(std::vector<bool>& opturns){
-        if (opturns.size() == 0) return 0;
-        return !(opturns.back());
-    }
-};
+bool RT4T::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return 0;
+    return !(opturns.back());
+}
+
+//7 | Prober
+
+
+//8 | Athens
+
+
+//9 | Tit-for-two-Tats
+
+
+//10 | Generous T4T
 
 //-------------------END-BOTS-----------------------

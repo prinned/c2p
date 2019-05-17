@@ -47,3 +47,70 @@ protected:
 public:
     bool react(std::vector<bool>& opturns);
 };
+
+//4 | Grudger
+class Grudger : public Prisoner {
+protected:
+    std::string name = "Grudger";
+public:
+    bool react(std::vector<bool>& opturns);
+};
+
+//5 | Suspicious Tit for Tat
+class ST4T : public Prisoner {
+protected:
+    std::string name = "Suspicious Tit for Tat";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+//6 | Reverse Tit for Tat
+class RT4T : public Prisoner {
+protected:
+    std::string name = "Rev. Tit-4-Tat";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+//7 | Prober
+class Prober : public Prisoner {
+protected:
+    std::string name = "Prober";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+
+//8 | Athens
+class Athens : public Prisoner {
+protected:
+    std::string name = "Athens";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+
+//9 | Tit-for-two-Tats
+class T42T : public Prisoner {
+protected:
+    std::string name = "Tit-4-2-Tats";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+//10 | Generous T4T
+class GT4T : public Prisoner {
+protected:
+    std::string name = "Generous T4T";
+public:
+    std::string getName(){return name;}
+    bool react(std::vector<bool>& opturns);
+};
+
+
+//-------------------END-BOTS-----------------------
