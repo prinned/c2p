@@ -17,10 +17,9 @@ protected:
     std::string name;
     bool virtual react(std::vector<bool>& opturns) = 0;
 public:
-    std::string getName(){return name;}
+    std::string virtual getName(){return name;}
     static PD_results fight(Prisoner& p1, Prisoner& p2, int total_turns = 10);
-    static void Print(PD_results, std::string);
-    std::string virtual getName() = 0;
+    static void Print(PD_results, std::string = "", char coop_symbol = 'C', char defect_symbol = 'D'); 
 };
 
 // --------------------BOTS------------------------
@@ -29,6 +28,7 @@ class Always_defect : public Prisoner {
 protected:
     std::string name = "Always Defect";
 public: 
+    std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);
 };
 
@@ -37,6 +37,7 @@ class Always_coop : public Prisoner {
 protected:
     std::string name = "Always Co-op";
 public: 
+    std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);
 };
 
@@ -45,14 +46,16 @@ class T4T : public Prisoner {
 protected:
     std::string name = "Tit for Tat";
 public:
+    std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);
 };
 
 //4 | Grudger
 class Grudger : public Prisoner {
 protected:
-    std::string name = "Grudger";
+    std::string name = "Grudger\t";
 public:
+    std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);
 };
 
@@ -77,7 +80,7 @@ public:
 //7 | Prober
 class Prober : public Prisoner {
 protected:
-    std::string name = "Prober";
+    std::string name = "Prober\t";
 public:
     std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);
@@ -87,7 +90,7 @@ public:
 //8 | Athens
 class Athens : public Prisoner {
 protected:
-    std::string name = "Athens";
+    std::string name = "Athens\t";
 public:
     std::string getName(){return name;}
     bool react(std::vector<bool>& opturns);

@@ -4,13 +4,13 @@
 #include "prisoner.h"
 
 //--------------------PRINTING-RESULTS--------------------
-void Prisoner::Print(PD_results result, std::string custom = ""){
+void Prisoner::Print(PD_results result, std::string custom, char coop_symbol, char defect_symbol){
     //printing turn history
     if (custom == "history" || custom == "h" || custom == ""){
-        std::cout<<result.name[0]<<"\t |";
-        for (bool i : result.history[0]) std::cout<<' '<<(i?'C':'D');
+        std::cout<<'\n'<<result.name[0]<<"\t |";
+        for (bool i : result.history[0]) std::cout<<' '<<(i?coop_symbol:defect_symbol);
         std::cout<<'\n'<<result.name[1]<<"\t |";
-        for (bool i : result.history[1]) std::cout<<' '<<(i?'C':'D');
+        for (bool i : result.history[1]) std::cout<<' '<<(i?coop_symbol:defect_symbol);
         std::cout<<'\n';
     }
     if(custom == "score" || custom == "s" || custom == ""){
@@ -68,6 +68,7 @@ PD_results Prisoner::fight(Prisoner& p1, Prisoner& p2, int total_turns){
 
 // --------------------BOTS------------------------
 // 1 | Always Defect
+
 bool inline Always_defect::react(std::vector<bool>& opturns){
     return 0;
 }
