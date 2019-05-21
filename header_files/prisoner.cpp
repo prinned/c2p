@@ -105,14 +105,29 @@ bool RT4T::react(std::vector<bool>& opturns){
 }
 
 //7 | Prober
+bool Prober::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return false;
+    if (opturns.size() == 1 || opturns.size() == 2) return true;
+    if (opturns[1] == true && opturns[2] == true) return false; 
+    return opturns.back();
+}
 
 
 //8 | Athens
-
+//nvm 
 
 //9 | Tit-for-two-Tats
-
+bool T42T::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return true;
+    if (opturns.back() == false || opturns[opturns.size() - 1] == false)return false;
+    return true;
+}
 
 //10 | Generous T4T
+bool GT4T::react(std::vector<bool>& opturns){
+    if (opturns.size() == 0) return true;
+    if (opturns.back() == false && opturns[opturns.size() - 1] == false)return false;
+    return true;
+}
 
 //-------------------END-BOTS-----------------------
