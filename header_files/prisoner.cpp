@@ -120,7 +120,7 @@ bool Prober::react(std::vector<bool>& opturns){
 bool T42T::react(std::vector<bool>& opturns){
     if (opturns.size() == 0) return true;
     if (opturns.back() == false || opturns[opturns.size() - 1] == false)return false;
-    return true;
+    return false;
 }
 
 //10 | Generous T4T
